@@ -11,7 +11,8 @@ Lets go over the steps of mapping FP32 to INT8:
 1.	Map extreme values together
 2.	Calculate scaling factor (S)
 3.	Calculate  zero point (Z)
-4.	Use S and Z to fill the rest of the the values following a linear mapping. 
+4.	Use S and Z to fill the rest of the the values following a linear mapping.
+5.	Store params with INT8 AND in inference time (test time) use dequanitization to avoid precision loss.  
 
 here is an image that explain what does the quanitization process is all about:
 
@@ -87,6 +88,18 @@ I will show a glimse to the answers regarding to an CLIP model and an LLM model 
 
 
 ## **Conclusion:**
+
+Linear quantization offers a compelling solution for balancing the trade-off between model size and performance in large deep learning models.
+By strategically reducing the precision of weights and activations, we can achieve significant memory savings without incurring substantial accuracy loss.
+
+**Key takeaways:**
+
+* Linear quantization maps high-precision floating-point values to a smaller set of integer values, resulting in a reduced model footprint.
+* At inference time the model does dequanitization of the weights.
+* This technique allows for deployment on resource-constrained environments like mobile devices.
+* Libraries like Quanto from Hugging Face simplify the quantization process for various deep learning models.
+* While a slight accuracy drop might occur, the benefits in terms of memory reduction often outweigh this drawback.
+
 
 
 
