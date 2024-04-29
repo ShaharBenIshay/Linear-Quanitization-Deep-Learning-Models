@@ -12,7 +12,9 @@ Lets go over the steps of mapping FP32 to INT8:
 2.	Calculate scaling factor (S)
 3.	Calculate  zero point (Z)
 4.	Use S and Z to fill the rest of the the values following a linear mapping.
-5.	Store params with INT8 AND in inference time (test time) use dequanitization to avoid precision loss.  
+5.	Store params with INT8 and in inference time (test time) use dequanitization to avoid precision loss.  
+
+dequanitization: If we want to go back to FP32, we can use the linear relationship that we used to quantize the original values. 
 
 here is an image that explain what does the quanitization process is all about:
 
@@ -23,9 +25,7 @@ Lets me show an example to clarify:
 TODO: example
 
 
-
-If we want to go back to FP32, we can use the linear relationship that we used to quantize the original values. 
-So how does this "Linear Quantization" effect our memory usage and how does it effect the performance of our model ? 
+## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
 To answer those questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
 I will show a glimse to the answers regarding to an CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
