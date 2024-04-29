@@ -27,7 +27,9 @@ If we want to go back to FP32, we can use the linear relationship that we used t
 So how does this "Linear Quantization" effect our memory usage and how does it effect the performance of our model ? 
 
 To answer those questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
-I will show the answers regarding to an LLM model and a CLIP model (if you are not familiar with thos model that is fine, you can still understand the concept).
+I will show a glimse to the answers regarding to an CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
+
+**note** - this comparison is just to have a glimse, there is a full performance comparison (with many models) done by HuggingFace
 
 ## **Model: "clip-vit-large-patch14" model by OpenAI**
 
@@ -39,7 +41,7 @@ I will show the answers regarding to an LLM model and a CLIP model (if you are n
 
 * Performance:
 
-  	To comapre a CLIP model we can compare the embedding of the text & the image.
+  	To comapre an CLIP model we can compare the embedding of the text & the image.
   
   	text = "a cat sitting on the beach"
   
@@ -61,12 +63,30 @@ I will show the answers regarding to an LLM model and a CLIP model (if you are n
   
 	Cosine Similarity for image: 0.999899
 
+<br>
+<br>
+
+## **Model: "flan-t5-small" model by Google**
+
+* Memory Usage:
+  
+	original model size = 0.307 GB
+
+	quantized model size = 0.126 GB
+
+* Performance:
+
+  	To comapre an LLM model we can compare the generated words that the model has generated.
+
+   	input text: "Hello, my name is"
+
+   	original model output = "annie scott"
+  
+  	quantized model output = "annie scott"
 
 
 
-
-Conclusion:
-
+## **Conclusion:**
 
 
 
