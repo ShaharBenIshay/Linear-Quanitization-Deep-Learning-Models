@@ -12,7 +12,7 @@ Lets go over the steps of mapping FP32 to INT8:
 2.	Calculate scaling factor (S)
 3.	Calculate  zero point (Z)
 4.	Use S and Z to fill the rest of the the values following a linear mapping.
-5.	Store params with INT8 and in inference time (test time) use dequanitization to avoid precision loss.  
+5.	Store params with INT8 and in inference time (test time) use dequanitization (with fp32) to avoid precision loss.  
 
 dequanitization: If we want to go back to FP32, we can use the linear relationship that we used to quantize the original values. 
 
@@ -20,10 +20,7 @@ here is an image that explain what does the quanitization process is all about:
 
 ![Quantization_error](https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning/assets/93884611/c784ae2f-e0eb-4202-95c8-7945b3d1bef6)
 
-Lets me show an example to clarify:
-
-TODO: example
-
+Example will clarify this process: 
 
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
