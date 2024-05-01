@@ -20,7 +20,7 @@ here is an image that explain what does the quanitization process is all about:
 
 ![Quantization_error](https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning/assets/93884611/c784ae2f-e0eb-4202-95c8-7945b3d1bef6)
 
-Example will clarify this process: 
+**Example** will clarify this process: Linear-Quanitization-Deep-Learning-Models/QuantizeExample.ipynb
 
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
