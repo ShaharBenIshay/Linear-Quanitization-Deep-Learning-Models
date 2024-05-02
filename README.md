@@ -25,9 +25,9 @@ here is an image that explain what does the quanitization process is all about:
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
 To answer those questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
-I will show a glimse to the answers regarding to an CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
+I will show a glimpse to the answers regarding to an CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
 
-**note** - this comparison is just to have a glimse, there is a full performance comparison (with many models) done by HuggingFace
+**note** - this comparison is just to have a glimpse, there is a full performance comparison (with many models) done by HuggingFace
 
 ## **Model: "clip-vit-large-patch14" model by OpenAI**
 
