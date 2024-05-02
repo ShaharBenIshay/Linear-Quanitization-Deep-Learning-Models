@@ -16,11 +16,29 @@ Lets go over the steps of mapping FP32 to INT8:
 
 dequanitization: If we want to go back to FP32, we can use the linear relationship that we used to quantize the original values. 
 
-here is an image that explain what does the quanitization process is all about:
 
-![Quantization_error](https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning/assets/93884611/c784ae2f-e0eb-4202-95c8-7945b3d1bef6)
 
-**Example** will clarify this process: Linear-Quanitization-Deep-Learning-Models/QuantizeExample.ipynb
+## **Example** will clarify this process:
+
+**definition:**
+
+<img width="550" alt="image" src="https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning-Models/assets/93884611/57726869-1c98-4a7d-a728-f93d34648d8b">
+
+**quantize and dequantize methods:**
+
+<img width="350" alt="image" src="https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning-Models/assets/93884611/68cf7813-a795-49e2-9946-a1a4809199fd">
+
+**whole process:** 
+
+<img width="350" alt="image" src="https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning-Models/assets/93884611/e1b803bb-40c4-4c00-9fbb-bb803cf4aab6">
+
+**results:** 
+
+<img width="350" alt="image" src="https://github.com/ShaharBenIshay/Linear-Quanitization-Deep-Learning-Models/assets/93884611/9790c999-4cf5-4c31-84c9-c04946d602e9">
+
+**note** - when we sum the errors it grows fast but there are many more adjustments and complicated optimization that we can add to reduce the error.
+
+
 
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
@@ -57,9 +75,11 @@ I will show a glimpse to the answers regarding to an CLIP model and an LLM model
 	<br>
 	<br>
 
-  	Cosine Similarity for text: 0.999907
+  	Cosine Similarity for text embeddings: 99.9907 %
   
-	Cosine Similarity for image: 0.999899
+	Cosine Similarity for image embeddings: 99.9899 %
+
+  As we can see by the cosine similarity results, the vector embeddings of both models are much the same
 
 <br>
 <br>
