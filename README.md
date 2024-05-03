@@ -49,7 +49,7 @@ dequanitization: If we want to go back to FP32, we can use the linear relationsh
 
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
-To answer those questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
+To answer thos questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
 I will show a glimpse to the answers regarding to a CLIP model and an LLM model (you don't need prior knowledge of these specific models to understand the concept).
 
 **note** - this comparison is just to have a glimpse, there is a full performance comparison (with many models) done by HuggingFace
