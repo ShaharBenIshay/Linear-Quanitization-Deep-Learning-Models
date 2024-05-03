@@ -19,13 +19,13 @@ Lets go over the steps of mapping FP32 to INT8:
 
 4.	Use S and Z to fill the rest of the the values following a linear mapping.
    
-5.	Store params as INT8 and in inference time (test time) use dequanitization (with fp32) to avoid precision loss.  
+5.	Store params as INT8 and during inference time (testing) use dequanitization (with fp32) to avoid precision loss.  
 
 dequanitization: If we want to go back to FP32, we can use the linear relationship that we used to quantize the original values. 
 
 
 
-## **Example** will clarify this process:
+## **Example** will clearly illustrate the quantization and dequantization processes.:
 
 **definition:**
 
@@ -50,7 +50,7 @@ dequanitization: If we want to go back to FP32, we can use the linear relationsh
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
 To answer those questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
-I will show a glimpse to the answers regarding to a CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
+I will show a glimpse to the answers regarding to a CLIP model and an LLM model (you don't need prior knowledge of these specific models to understand the concept).
 
 **note** - this comparison is just to have a glimpse, there is a full performance comparison (with many models) done by HuggingFace
 
@@ -60,7 +60,7 @@ I will show a glimpse to the answers regarding to a CLIP model and an LLM model 
   
 	original model size = 1.71 GB
 
-	quantized model size = 0.54 GB
+	quantized model size = 0.54 GB (69% reduction !)
 
 * Performance:
 
@@ -86,7 +86,8 @@ I will show a glimpse to the answers regarding to a CLIP model and an LLM model 
   
 	Cosine Similarity for image embeddings: 99.9899 %
 
-  As we can see by the cosine similarity results, the vector embeddings of both models are much the same
+  As you can see, the cosine similarity results show negligible differences between the original and quantized models, indicating very 
+  similar vector embeddings.
 
 <br>
 <br>
@@ -97,7 +98,7 @@ I will show a glimpse to the answers regarding to a CLIP model and an LLM model 
   
 	original model size = 0.307 GB
 
-	quantized model size = 0.126 GB
+	quantized model size = 0.126 GB (58% reduction !)
 
 * Performance:
 
@@ -109,7 +110,7 @@ I will show a glimpse to the answers regarding to a CLIP model and an LLM model 
   
   	quantized model output = "annie scott"
 
-
+	The generated text remains consistent, demonstrating minimal impact on performance.
 
 ## **Conclusion:**
 
