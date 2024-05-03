@@ -8,11 +8,18 @@ Take for example "DALL E-2" which has a 3.5 billion parameters or "Sora" which h
 
 **Better Solution:** Is there a way to reduce the memory usage but keep the model performance ? here comes "Linear Quantization". Quantization refers  the process of mapping a large set to a smaller set of values. 
 Lets go over the steps of mapping FP32 to INT8:
-1.	Map extreme values together
+
+1.	Map extreme values together.
+   
+	max value of the weights is mapped to be max value represented by 8 bits (127) and the same for min value (-128)
+
 2.	Calculate scaling factor (S)
+   
 3.	Calculate  zero point (Z)
+
 4.	Use S and Z to fill the rest of the the values following a linear mapping.
-5.	Store params with INT8 and in inference time (test time) use dequanitization (with fp32) to avoid precision loss.  
+   
+5.	Store params as INT8 and in inference time (test time) use dequanitization (with fp32) to avoid precision loss.  
 
 dequanitization: If we want to go back to FP32, we can use the linear relationship that we used to quantize the original values. 
 
@@ -43,7 +50,7 @@ dequanitization: If we want to go back to FP32, we can use the linear relationsh
 ## So how does this "Linear Quantization" effect memory usage & performance of our model ? 
 
 To answer those questions i will use **"Quanto"**, a python library developed by **HuggingFace** to quantize any PyTorch model. 
-I will show a glimpse to the answers regarding to an CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
+I will show a glimpse to the answers regarding to a CLIP model and an LLM model (if you are not familiar with thos model that is fine, you can still understand the concept).
 
 **note** - this comparison is just to have a glimpse, there is a full performance comparison (with many models) done by HuggingFace
 
@@ -57,7 +64,7 @@ I will show a glimpse to the answers regarding to an CLIP model and an LLM model
 
 * Performance:
 
-  	To comapre an CLIP model we can compare the embedding of the text & the image.
+  	To comapre a CLIP model we can compare the embedding of the text & the image.
   
   	text = "a cat sitting on the beach"
   
